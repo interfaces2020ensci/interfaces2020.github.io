@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
+
+body{
+  font-family: 'Alegreya',serif;
+  margin:0;
+  width : 4000px;
+  height: 2500px;
+}
+
+img{
+  max-width: 100%;
+}
+
+h1, h2{
+  font-weight: normal;
+  font-size: 22px;
+  margin: 0;
+  color: rgba(103, 103, 103, 1);
+}
+
+header{
+  position: fixed;
+  display: flex;
+  justify-content:space-between;
+  width: calc(100% - 30px);
+  padding-left:10px;
+  padding-right: 50px;
+  padding-top: 20px;
+  z-index: 2;
+}
+
+h1{
+  cursor:pointer;
+  margin-left: 50px;
+}
+
+h1:hover{
+  font-style: italic;
+  transition: all 1s ease;
+}
+
+h2{
+  margin-right: 50px;
+
+
+}
+
+h2 span{
+  cursor:pointer;
+  display: inline-block;
+  margin-left: 20px;
+  transition: all 1s ease;
+}
+
+h2 span:hover{
+  transform:scale(2);
+  transition: all 0.5s ease;
+}
+
+.bouton.active{
+  transform:rotate(180deg);
+}
+
+/* quand on passe par dessus edition la flèche d'à côté grossit
+h2 :hover{
+  transform  :  scale(2);
+  transition: all 0.5s ease;
+} */
+
+
+.edition{
+  position: fixed;
+  height: 100%;
+  background-color: rgba(233,231,225,0.9);
+  right: -250px;
+  width: 250px;
+  z-index: 0;
+  transition: all 1s ease;
+}
+
+.edition.active{
+  right: 0;
+}
+.balais{
+  z-index: -2;
+  width: 4000px;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  grid-auto-rows:auto;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+.balais.loaded{
+  opacity: 1;
+}
+
+.balais figure{
+  cursor: pointer;
+}
+
+.popup{
+
+  width: 650px;
+  height: 650px;
+  background-color: rgba(233,231,225,0.7);
+  /* border: 1px solid #000; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.fondblanc{
+  width: 550px;
+  height: 550px;
+  background-color: rgba(255,255,255,1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  }
+
+.legendes{
+  transform: rotate(-15deg);
+  font-family:'Alegreya'serif;
+    font-weight:bold;
+  color: rgba(103, 103, 103, 1);
+
+  font-size: 17px;
+  position:absolute;
+  z-index:2;
+}
+
+.legendes span {
+ background-image: linear-gradient(to right,rgba(255, 255, 255, 1),rgba(255, 255, 255, 1));
+ border-radius: 0px;
+ padding: 1px 6px;
+}
+
+.pays{
+margin-top: 100px;
+left: -50px;
+}
+
+.matiere{
+margin-top: 10px;
+max-width: 150px;
+left: -50px;
+}
+
+.description{
+margin-top: 350px;
+margin-left: 500px;
+max-width: 150px;
+}
+
+.image-wrapper{
+  max-width: 550px;
+  margin:auto;
+}
+
+.image-wrapper img{
+  object-fit: contain;
+  height: 548px;
+  width: auto;
+  max-width: 100%;
+}
+
+.croix{
+  transform-origin: 50%, 50%;
+  cursor: pointer;
+  font-family:'Roboto';
+  margin: 0;
+  color: rgba(103, 103, 103, 1);
+  font-size: 30px;
+  position:fixed;
+  top:-19px;
+  right: 15px;
+  z-index:6;
+}
+
+.croix.active{}
+
+
+@media print{
+  @page{
+    size: A4;
+    background: rgba(255, 0, 0, 0.5);
+  }
+  .balais{
+    display:block;
+  }
+  .balais figure{
+    width: 21cm;
+    height: 29.7cm;
+    page-break-after: always;
+  }
+  .balais figure img{
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,83 @@
+h1 {
+  font-family:sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 2vw;
+  word-spacing: 12vw;
+  font-feature-settings: 'cpsp' on;
+}
+.button_randomise{
+  border: none;
+  box-shadow: none;
+  font-family: sans-serif;
+}
+
+.body{
+ margin: none; !important 
+}
+
+.group_buttons{ 
+  border: none;
+  box-shadow: none;
+  margin: auto;
+  text-align: center;
+  background-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  font-feature-settings: 'cpsp' on;
+}
+
+.but{
+    font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 1vw;
+  word-spacing: 10px;
+  font-feature-settings: 'cpsp' on;
+    margin-right: 20;
+    margin-left: 20;
+}
+
+.retrospective_button{
+  margin-top: 45%;
+  background-color:
+}
+
+
+.retrospective_button{
+  background-color:
+}
+.retrospective_button{
+  border: none;
+  box-shadow: none;
+  font-family: sans-serif;
+  position: absolute;
+  right: 8px;
+  top: 115px;
+}
+
+.title{
+    width: 100vw;
+    position: fixed;
+    background-color: white;
+    z-index: 2;
+    margin: 0;
+    outline-style: solid;
+    outline-width: 20px;
+    outline-color: white;
+    opacity: 0.95;
+}

@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(215, 235, 130);
+    font-family:monospace;
+  }
+
+img{
+  max-width:100%;
+}
+
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projet{
+  width:10%;
+}

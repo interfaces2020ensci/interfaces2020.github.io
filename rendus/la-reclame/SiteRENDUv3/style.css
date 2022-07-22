@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Univers';
+    src: url('fonts/UniversLTStd-Light.woff2') format('woff2'),
+        url('fonts/UniversLTStd-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+*{
+  box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: "Univers", sans-serif;
+}
+
+
+body{
+  margin:0;
+  overflow: hidden;
+  font-family: "Univers", sans-serif;
+
+}
+
+
+
+
+.content{
+	position: relative;
+
+}
+
+.cartel{
+    position : absolute;
+    z-index: 10;
+    background : white;
+    /*espacement avec la souris*/
+    margin : 40px;
+    /*marge internes*/
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    min-width: 200px;
+    line-height: 0%;
+}
+
+.date{
+   font-size: 30px;
+    margin-top :20px;
+    margin-bottom : 27px;
+}
+
+.marque{
+   font-size: 15px;
+    margin-top :0px;
+    margin-bottom : 15px;
+}
+
+
+.rond{
+    background : white;
+	position: absolute;
+	width: 283.333px;
+	height: 333.333px;
+	border-radius: 50%;
+	z-index: 0;
+    margin:0  auto;
+    text-align: center;
+
+}
+
+.woman-image{
+    position: relative;
+    transform:scale(.333);
+
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    clip-path: url(#clip-portrait);
+    position:relative;
+    /*background-color: rgba(255,0,0,.2);*/
+
+/*    transition: all 1s;*/
+}
+
+.grille {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 37.1px 37.1px;
+  background-image: linear-gradient(to right, grey 1px, transparent 1px), linear-gradient(to bottom, grey 1px, transparent 1px);
+  background-position: center;
+}
+
+.image-wrapper.no-mask {
+    clip-path : none;
+}
+
+
+
+.svg-defs {
+    height: 0;
+    width: 0;
+}

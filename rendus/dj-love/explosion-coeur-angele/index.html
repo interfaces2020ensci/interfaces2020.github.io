@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1,  user-scalable=no,minimal-ui" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <title>Explosion Demo</title>
+    <style>
+        #target {
+            display: block;
+            margin: auto;
+            margin-top: 170px;
+            margin-bottom: 10px;
+            width: 400px;
+            border-radius: 50px;
+        }
+        body{
+            background-image: url('fond.jpg');
+            background-image: url('coeurfond.png');
+            background-repeat:repeat;
+             background-position: 0 0;  
+             background-size:60px,80px;
+
+             animation: movebackground 60s infinite ease;
+}
+
+
+@keyframes movebackground {
+  0% {
+    background-position: 600 0;
+  }
+
+100% {
+    
+    background-position: 600px 1500px;
+  }
+
+
+
+
+        }
+        
+    
+    </style>
+</head>
+
+<body style="margin:0;text-align:center;">
+<img src="djlove.png" height="70" width="270"  border="0 ">
+
+
+
+<img onclick="explode()" id="target" src="./coeur.png"> 
+ <!--    <button style="position:fixed;right:0;top:0;width:100px;height:50px;" onclick="explode()">Explode</button> -->
+    <script src="lib/jquery-3.1.0.js"></script>
+    <!--    <script src="jquery.imgexplode.js"></script>-->
+    <script src="dist/jquery.imgexplode.min.js"></script>
+    <script>
+        var $target = $("#target");
+
+        function explode() {
+            $target.explodeRestore();
+            setTimeout(function () {
+                $target.explode({
+                    maxWidth: 15,
+                    minWidth: 8,
+                    radius: 400,
+                    release: false,
+                    recycle: false,
+                    explodeTime: 320,
+                    canvas: true,
+                    round: false,
+                    maxAngle: 360,
+                    gravity: 5,
+                    groundDistance: 400,
+                });
+            }, 300)
+        }
+    </script>
+</body>
+
+</html>

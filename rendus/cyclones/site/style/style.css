@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'roboto mono', sans-serif;
+}
+body a{
+  text-decoration: none;
+  color: black
+}
+
+header {
+    position: fixed;
+    background: white;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 8px;
+
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+svg {
+    overflow: visible;
+
+}
+
+h1 {
+
+    margin-top: 0px;
+    font-family: 'roboto mono', monospace;
+    padding: 40px;
+}
+
+h2 {
+    margin-top: 0px;
+    font-family: 'roboto mono', cursive;
+    font-size: 80%;
+    text-align: right;
+}
+
+#searchbar .text {
+    width: 300px;
+    float: right;
+}
+
+#searchbar .champ {
+    width: 600px;
+    height: 35px;
+    float: right;
+}
+h3 {
+    font-family: 'roboto mono', cursive;
+    z-index: 1;
+}
+
+
+.T1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.T2 {
+    position: absolute;
+    top: 55%;
+    left: 70%;
+    transform: translate(-50%, -50%)
+}
+
+div {
+    width: 1000px;
+    left: 40px;
+    right: 30px;
+    top: 200px;
+    position: fixed;
+}
+
+button {
+    padding: 0;
+    border: none;
+    width: 145px;
+    background-color: inherit;
+    height: 50px;
+    top: 35px;
+}
+
+h6 {
+    font-family: 'Roboto Mono', monospace;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    z-index: 1
+}
+
+.icones {
+    text-align: left;
+}
+
+.d {
+    left: 47px;
+    width: 20px;
+    height: 30px;
+
+}
+
+.date {
+    width: 45px;
+    height: 45px;
+}
+.l{ left: 50px;
+  top: 500px;
+  width: 20px;
+  height: 30px;
+
+}
+.localisation{width: 45px;
+height: 55px;
+}
+.vent {
+    width: 57px;
+    height: 45px;
+}
+
+.v {
+    left: 50px;
+    top: 800px;
+    width: 20px;
+    height: 30px;
+}
+
+.katrina {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+    font-family: 'roboto mono', sans-serif;
+    width: 50%;
+
+}
+
+.katrina img {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    object-position: right;
+}
+
+.katrina txt {
+    text-align: justify-all;
+}
+h4 {margin: 0;
+}
+
+.mon_menu {
+  display: none;
+  margin: 0;
+}
+h4:hover + .mon_menu {
+  display: block;
+}
+
+.mon_menu:hover {
+  display: block;
+}
+h5 {margin: 0;
+}
+
+.mon_menu2 {
+  display: none;
+  margin: 0;
+}
+h5:hover + .mon_menu2 {
+  display: block;
+}
+
+.mon_menu2:hover {
+  display: block;
+}
+
+p{margin: 0;
+}
+
+.mon_menu3 {
+  width: 40px;
+  display: none;
+  margin: 0;
+}
+p:hover + .mon_menu3 {
+  display: block;
+}
+
+.mon_menu3:hover {
+  display: block;
+}

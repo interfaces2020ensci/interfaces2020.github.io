@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>Workshop Interfaces Graphiques 2020 @ ENSCI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <img src="images/01-image-prez.png">
+    <h1>Workshop Interfaces Graphiques 2020</h1>
+    <h2>Préparé et encadré par Sarah Garcin et Louis Eveillard de <a href="https://latelier-des-chercheurs.fr/" target="_blank">l’Atelier des chercheurs</a> du 17 au 21 février, à l’<a href="https://www.ensci.com/ensci-les-ateliers/" target="_blank">ENSCI</a> et avec 14 étudiants</h2>
+
+    <div class="sujet">
+    <h3>Le sujet</h3>
+      <p>
+      À partir d’une documentation choisie en début de workshop et composée de documents de différents types (images, textes, vidéos, sons, etc.), ce workshop aura pour objet de créer des interfaces graphiques et interactives d’affichage et de consultation de cette matière. Imaginez des paradigmes non conventionnels mettant en oeuvre de nouvelles manières de naviguer et d’explorer un corpus de documents, puis réalisez des maquettes semi-fonctionnels en utilisant les langages du web.
+      </p>
+    </div>
+  </header>
+
+  <main id="app">
+    <article v-for="({ title, visuel, authors, description }, index) in articles" :key="index">
+      <div class="visuel">
+        <video v-if="visuel.type === 'video'" :src="visuel.src" :poster="visuel.poster" controls></video>
+        <img v-if="visuel.type === 'image'" :src="visuel.src" />
+      </div>
+      <div class="text">
+        <hgroup class="">
+          <h3>
+              {{ title }}
+          </h3>
+          <h4>
+            <span class="m_author" v-for="author in authors">
+              <a v-if="author.mail" :href="author.mail">{{ author.name }}</a>
+              <template v-else>{{ author.name }}</template>
+            </span>
+          </h4>
+        </hgroup>
+
+        <div class="description" v-html="description">
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+    <script src="vue.min.js"></script>
+    <script>
+
+      var articles = [
+          {
+            title: 'La Réclame',
+            authors: [
+              {
+                name: 'Sandra Pizzorno',
+              }
+            ],
+            description: `
+              <p>La Réclame est un site invitant à l'exploration d'un corpus de publicités sexistes sur le thème Femmes et Technologie. Les publicités sont présentées les unes après les autres sur une page unique, selon 3 principes :</p>
+              <ul>
+                <li>Le centrage sur le visage de la femme, </li>
+                <li>le masquage du reste de la publicité pour une lecture en deux temps, </li>
+                <li>le jeu d'échelle grâce au scroll</li>
+                <li>la "femme de l'image" en devient sujet.</li>
+              </ul>
+              <p>L'interface plus compète de la maquette intègre des filtres de date et de type de sexisme.</p>
+              <a href="rendus/la-reclame/SiteRENDUv3" target="_blank">Tester le prototype du site</a>
+            `,
+            visuel: {
+              type: 'video',
+              src: 'rendus/la-reclame/vidomaquettev2.mp4'
+            }
+          },
+          {
+            title: 'La Nuée de l’Homme',
+            authors: [
+              {
+                name: 'Mathias Lou',
+                mail: 'mathias.lou@ensci.com'
+              },
+              {
+                name: 'Juliette Tellier',
+                mail: 'juliette.tellier@ensci.com'
+              }
+            ],
+            description: `
+              <p>La Nuée est une interface permettant de naviguer dans les collections d'un musée. En naviguant par mot-clés, le visiteur affine ses recherches et découvre par sérendipité. S'il est intéressé par une pièce, il pourra garder une trace de sa visite. Une option permet d'obtenir des fiches directement imprimables, utiles pour les designers ou les chercheurs par exemple.</p>
+              <a href="https://www.figma.com/file/5pj5O9EegwPRX4zrtWJiK9/Untitled" target="_blank">Maquettes sur Figma</a><br>
+              <a href="rendus/balais/site" target="_blank">Tester le prototype du site (protégé par mot de passe pour des questions de droit d’image)</a>
+            `,
+            visuel: {
+              type: 'image',
+              src: 'rendus/balais/image-site-balais.png'
+            }
+          },
+          {
+            title: 'Un pavé dans la mare',
+            authors: [
+              {
+                name: 'Lila Guedin',
+                mail: 'lila.guedin@ensci.com'
+              },
+              {
+                name: 'Claire Clément',
+                mail: 'claire.clement@ensci.com'
+              }
+            ],
+            description: `<p>
+              Site regroupant des expressions françaises et leurs définitions plus ou moins exhaustives regroupées par thèmes. Interface ludique et simple pour découvrir les expressions, combiner les thèmes, et pour la suite en rajouter. Prendre son pied.</p>
+              <a href="rendus/expressions/site" target="_blank">Tester le prototype de site</a><br>
+            `,
+            visuel: {
+              type: 'image',
+              src: 'rendus/expressions/apercu.png'
+            }
+          },
+          {
+            title: 'L’acentrale',
+            authors: [
+              {
+                name: 'Bertille Sionneau',
+                mail: 'bertille.sionneau@ensci.com'
+              },
+              {
+                name: 'Julie Hatton',
+                mail: 'julie.hatton@ensci.com'
+              }
+            ],
+            description: `<p>
+             L’Acentrale est un collectif réunissant des radios et webradios. Depuis le 5 décembre, il collecte des sons liés aux grèves contestant la nouvelle réforme des retraites. Le site l’Acentrale propose une exploration de ce corpus et offre à voir les voix du mouvement social. La page d’accueil permet de naviguer librement parmi les sons qui se déclenchent quand le curseur est assez proche. Le brouhaha de la grève est donc toujours présent. Pour une navigation plus précise les sons sont associés à des thématiques en fonction de leur contenu. Ce système de tags permet aussi une lecture guidée si l’on souhaite approfondir une thématique.
+            </p>
+              <a href="rendus/lacentrale/video.mov" target="_blank">Vidéo de démonstration des principes</a><br>
+            `,
+            visuel: {
+              type: 'image',
+              src: 'rendus/lacentrale/apercu.png'
+            }
+
+         },
+          {
+            title: 'DJ Love',
+            authors: [
+                            {
+                name: 'Angèle Cottet',
+                mail: 'angele.cottet@ensci.com'
+              },
+
+            ],
+            description: `
+              <p>Dites ce que vous ressentez avec de la musique !</p>
+              <a href="rendus/dj-love/maquettes.pdf" target="_blank">Consulter les maquettes</a><br>
+              <a href="rendus/dj-love/explosion-coeur-angele" target="_blank">Tester le prototype d’animation de page d’accueil</a>
+            `,
+            visuel: {
+              type: 'video',
+              src: 'rendus/dj-love/apercu.mp4'
+            }
+          },
+          {
+            title: 'Ronand et Erwan Bouroullec',
+            authors: [
+              {
+                name: 'Ulysse Van Duinen'
+              },
+              {
+                name: 'Martin Guyot'
+              },
+            ],
+            description: `
+              <p>La banque d’images des frères Ronan et Erwan Bouroullec recèle de plusieurs milliers d’images en désordre allant de photos d’eux même, de luminaires, de meubles, de détails, d’extérieurs, de scénographie d’exposition. L’idée est-ici de combiner plusieurs tags pour épurer cette base de donnée et permettre à un novice de se déplacer parmi toutes ces images et de découvrir le travail des bouroullec en choisissant comme porte d’entrée une classification par année, matériau, typologie d’objet ou couleur. Le visiteur se laisse guider et peut influer son parcours. Lorsqu’il le souhaite, il peut choisir de visualiser une rétrospective de l’ensemble du trajet parcouru et des choix effectués.</p>
+              <a href="rendus/bouroullec/site" target="_blank">Tester le prototype de site</a>
+            `,
+            visuel: {
+              type: 'video',
+              src: 'rendus/bouroullec/r-e-b-website-proto-2-0-1.mp4',
+              poster: 'rendus/bouroullec/apercu.png'
+            }
+          },
+          {
+            title: 'Trajectoire et effets des cyclones',
+            authors: [
+              {
+                name: "Nathan Rousset"
+              },
+              {
+                name: "César Jimenez"
+              }
+            ],
+            description: `
+              <a href="rendus/cyclones/figma-ce-sar-nathan.pdf" target="_blank">Consulter les maquettes</a><br>
+              <a href="rendus/cyclones/site/index.html" target="_blank">Tester le prototype du site (page 1)</a><br>
+              <a href="rendus/cyclones/site/index2.html" target="_blank">Tester le prototype du site (page 2)</a><br>
+              <a href="rendus/cyclones/site/index3.html" target="_blank">Tester le prototype du site (page 3)</a><br>
+              <a href="rendus/cyclones/site/index4.html" target="_blank">Tester le prototype du site (page 4)</a>
+            `,
+            visuel: {
+              type: 'image',
+              src: 'rendus/cyclones/apercu.png'
+            }
+          },
+          {
+            title: 'Portfolio personnel',
+            authors: [
+            ],
+            description: `
+              <a href="rendus/portfolio/ensci-workshop-romain-thouin-renduprez.pdf" target="_blank">Consulter les maquettes</a><br>
+              <a href="rendus/portfolio/site" target="_blank">Tester le prototype de site</a>
+            `,
+            visuel: {
+              type: 'image',
+              src: 'rendus/portfolio/apercu.png'
+            }
+          }
+        ];
+
+
+      var app = new Vue({
+        el: "#app",
+        data: {
+          articles: articles
+        }
+      });
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
