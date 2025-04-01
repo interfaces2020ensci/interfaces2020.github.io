@@ -24,6 +24,7 @@
     <article v-for="({ title, visuel, authors, description }, index) in articles" :key="index">
       <div class="visuel">
         <video v-if="visuel.type === 'video'" :src="visuel.src" :poster="visuel.poster" controls></video>
+        <iframe v-else-if="visuel.type === 'iframe'" :src="visuel.src" title="visuel.poster"></iframe>
         <img v-if="visuel.type === 'image'" :src="visuel.src" />
       </div>
       <div class="text">
